@@ -1,2 +1,3 @@
-# terraform-module-maas_instance
-Terraform implementation module for defining a MAAS instance
+# tf-module-maas-instance
+
+Terraform implementation module for defining a MAAS instance with Google Cloud DNS
