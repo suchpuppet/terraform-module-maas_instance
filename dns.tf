@@ -2,7 +2,7 @@
 resource "google_dns_record_set" "main" {
   count = var.enable_google_dns == true ? length(var.hosts) : 0
   name  = maas_instance.main[count.index].hostname
-  type  = A
+  type  = "A"
   ttl   = var.dns_ttl
 
   managed_zone = var.dns_zone
