@@ -1,4 +1,4 @@
-variable "hostnames" {
+variable "hosts" {
   type = list(any)
 }
 

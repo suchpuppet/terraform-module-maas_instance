@@ -1,9 +1,9 @@
 # Setup cloud-init template
 data "template_file" "cloudinit" {
-  count    = local.instance_count
+  count    = length(var.hosts)
   template = file("${path.module}/templates/cloud_init.tpl")
 
   vars = {
-    hostname = var.hostnames[count.index]
+    hostname = var.hosts[count.index]["hostname"]
   }
 }
