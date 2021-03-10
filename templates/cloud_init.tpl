@@ -7,16 +7,18 @@ groups:
   - ubuntu: [root,sys]
   - cloud-users
 
+ssh_authorized_keys:
+  - ${ssh_authorized_key}
+
 # Add users to the system. Users are added after groups are added.
 # Note: Most of these configuration options will not be honored if the user
 #       already exists. Following options are the exceptions and they are
 #       applicable on already-existing users:
 #       - 'plain_text_passwd', 'hashed_passwd', 'lock_passwd', 'sudo',
 #         'ssh_authorized_keys', 'ssh_redirect_user'.
-users:
-  - default
-
-  # Valid Values:
+# users:
+#  - default
+# Valid Values:
 #   name: The user's login name
 #   expiredate: Date on which the user's account will be disabled.
 #   gecos: The user name's real name, i.e. "Bob B. Smith"
@@ -117,4 +119,4 @@ users:
 #     groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev]
 
 # runcmd:
-#   - apt install -y ansible
+# - apt install -y ansible

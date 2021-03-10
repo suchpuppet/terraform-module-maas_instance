@@ -5,5 +5,6 @@ data "template_file" "cloudinit" {
 
   vars = {
     hostname = var.hosts[count.index]["hostname"]
+    ssh_authorized_key = var.ssh_authorized_key
   }
 }

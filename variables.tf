@@ -45,3 +45,7 @@ variable "subnet_id" {
   type    = number
   default = 1
 }
+
+variable "ssh_authorized_key" {
+  type = string
+}
