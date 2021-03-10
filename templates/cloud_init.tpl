@@ -6,7 +6,6 @@ hostname: ${hostname}
 groups:
   - ubuntu: [root,sys]
   - cloud-users
-  - sbrimhall
 
 # Add users to the system. Users are added after groups are added.
 # Note: Most of these configuration options will not be honored if the user
@@ -16,15 +15,6 @@ groups:
 #         'ssh_authorized_keys', 'ssh_redirect_user'.
 users:
   - default
-  - name: sbrimhall
-    gecos: Scott Brimhall
-    primary_group: sbrimhall
-    groups: sbrimhall
-    lock_passwd: false
-    passwd: $1$yr8jd5vF$g2faUqbLUQUpUUqG2CJvc0
-    sudo: ALL=(ALL) NOPASSWD:ALL
-    ssh_authorized_keys:
-    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDRUziF6ziQ3KH/IYwO6Nd9ULXN0kSujtceVi9RiMp4PmmmQRmb0+c5oBuJ4czSfrQjFS2iCvd+T0rgUph9l7oPnEHt5D4MI8+6oGxnkBqIRjRlfDh4jbnAIeV7jwrV2Pwd82LGELoYjl5so3tmrW+nwuHuJf29EZLa1IKR9jiYe8PWnARunAnHqJozyVybUcH0p2b/gP1SgYAbLEpF2P1k7h+EIz4ZxMK+ejrhVmSafu9Ta/mhGKIlNnrhBSDEK3ZnU1CYQrS+9JfoF1vc8BOLtTYFuYFS/W2zLi4r5YzHmEPvr8u2tWpPPG7R1qL9s7ZKnZu2L/ttFoSC4DUNnYJed+T1pMHg84Pg+K8koQUxqvU9MKXnG9wtnoDXiua2bEdDOX/bDR+NWIf7uh2npk981Vatp7qHY+o8kER1cASO8LUAG+6sGlvXLGWr2QrBMc9iVS7TEuosvkgObJE2jhjLMc7KWjT+yZSobmGjBx0uWY8FsKruXZHdMZDz0LybYR8= sbrimhall@sbrimhall-APEXX-T3-05    - 
 
   # Valid Values:
 #   name: The user's login name
@@ -126,5 +116,5 @@ users:
 #     gecos: Ubuntu
 #     groups: [adm, audio, cdrom, dialout, floppy, video, plugdev, dip, netdev]
 
-runcmd:
-  - apt install -y ansible
+# runcmd:
+#   - apt install -y ansible
