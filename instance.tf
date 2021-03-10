@@ -17,7 +17,7 @@ resource "maas_interface_physical" "main" {
   system_id   = maas_instance.main[count.index].system_id
   mac_address = var.hosts[count.index]["mac_address"]
   vlan        = var.vlan
-  depends_on  = [maas_instance.main[count.index]]
+  depends_on  = [maas_instance.main]
 }
 
 resource "maas_interface_link" "main" {
@@ -27,5 +27,5 @@ resource "maas_interface_link" "main" {
   subnet_id    = var.subnet_id
   mode         = "STATIC"
   ip_address   = var.hosts[count.index]["ip_addresses"][0]
-  depends_on   = [maas_interface_physical.main[count.index]]
+  depends_on   = [maas_interface_physical.main]
 }
