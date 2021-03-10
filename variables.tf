@@ -35,3 +35,13 @@ variable "enable_google_dns" {
   type    = bool
   default = true
 }
+
+variable "vlan" {
+  type    = string
+  default = "Default VLAN"
+}
+
+variable "subnet_id" {
+  type    = number
+  default = 1
+}

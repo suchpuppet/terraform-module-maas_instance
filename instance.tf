@@ -11,3 +11,19 @@ resource "maas_instance" "main" {
     ignore_changes = [user_data]
   }
 }
+
+resource "maas_interface_physical" "main" {
+  count       = length(var.hosts)
+  system_id   = maas_instance.main[count.index].system_id
+  mac_address = var.hosts[count.index]["mac_address"]
+  vlan        = var.vlan
+}
+
+resource "maas_interface_link" "main" {
+  count        = length(var.hosts)
+  system_id    = maas_interface_physical.main[count.index].system_id
+  interface_id = maas_interface_physical.main[count.index].interface_id
+  subnet_id    = var.subnet_id
+  mode         = "STATIC"
+  ip_address   = var.hosts[count.index]["ip_addresses"][0]
+}
