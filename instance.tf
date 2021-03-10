@@ -6,7 +6,6 @@ resource "maas_instance" "main" {
   release_erase = var.release_erase
   install_kvm   = var.install_kvm
   ip_addresses  = var.hosts[count.index]["ip_addresses"]
-  address       = var.hosts[count.index]["ip_addresses"][0]
 
   lifecycle {
     ignore_changes = [user_data]
