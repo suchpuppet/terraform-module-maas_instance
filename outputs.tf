@@ -1,10 +1,10 @@
 output "instance_metadata" {
-  value = resource.maas_instance.main[0]
+  value = maas_instance.main
 }
 
 output "interfaces" {
   value = [
-    resource.maas_interface_physical.main[0],
-    resource.maas_interface_link.main[0]
+    maas_interface_physical.main,
+    maas_interface_link.main
   ]
 }
