@@ -7,5 +7,5 @@ resource "google_dns_record_set" "main" {
 
   managed_zone = var.dns_zone
 
-  rrdatas = maas_instance.main[count.index].ipaddresses
+  rrdatas = maas_instance.main[count.index].ip_addresses[0]
 }
