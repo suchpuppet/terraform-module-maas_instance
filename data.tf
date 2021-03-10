@@ -4,7 +4,7 @@ data "template_file" "cloudinit" {
   template = file("${path.module}/templates/cloud_init.tpl")
 
   vars = {
-    hostname = var.hosts[count.index]["hostname"]
+    hostname           = var.hosts[count.index]["hostname"]
     ssh_authorized_key = var.ssh_authorized_key
   }
 }
