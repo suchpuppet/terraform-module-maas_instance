@@ -17,11 +17,6 @@ variable "user_data" {
   default = ""
 }
 
-variable "disk_size" {
-  type    = number
-  default = 20
-}
-
 variable "install_kvm" {
   type    = bool
   default = false
