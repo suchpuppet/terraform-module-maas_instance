@@ -3,6 +3,8 @@
 # The following example adds the ubuntu group with members 'root' and 'sys'
 # and the empty group cloud-users.
 hostname: ${hostname}
+users:
+  - default
 groups:
   - ubuntu: [root,sys]
   - cloud-users
