@@ -3,14 +3,6 @@
 # The following example adds the ubuntu group with members 'root' and 'sys'
 # and the empty group cloud-users.
 hostname: ${hostname}
-users:
-  - default
-groups:
-  - ubuntu: [root,sys]
-  - cloud-users
-
-ssh_authorized_keys:
-  - ${ssh_authorized_key}
 
 # Add users to the system. Users are added after groups are added.
 # Note: Most of these configuration options will not be honored if the user
