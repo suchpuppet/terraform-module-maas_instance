@@ -28,7 +28,7 @@ resource "null_resource" "provision_ansible_maas" {
     curl -L --user ${var.awx_user}:${var.awx_password} \
     -H 'Content-Type: application/json' \
     -X POST \
-    -d '{"limit": "maas"}' \
+    -d '{"limit": ""${var.hosts[count.index]["hostname"]}""}' \
     "${var.awx_url}/api/v2/job_templates/${var.awx_job_template_id}/launch/"
     AWX
   }
