@@ -49,3 +49,28 @@ variable "subnet_id" {
 variable "ssh_authorized_key" {
   type = string
 }
+
+variable "awx_provisioning" {
+  type    = bool
+  default = false
+}
+
+variable "awx_user" {
+  type    = string
+  default = "admin"
+}
+
+variable "awx_password" {
+  type    = string
+  default = "admin"
+}
+
+variable "awx_url" {
+  type    = string
+  default = "http://127.0.0.1"
+}
+
+variable "awx_job_template_id" {
+  type    = string
+  default = 1
+}

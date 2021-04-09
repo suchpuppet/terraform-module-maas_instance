@@ -11,3 +11,30 @@ resource "maas_instance" "main" {
     ignore_changes = [user_data]
   }
 }
+
+# AWX-driven Ansible Provisioning
+resource "null_resource" "provision_ansible_maas" {
+  # Enable this resource if awx provisioning is desired
+  count = var.awx_provisioning == false ? 0 : 1
+
+  # Changes to any instance in the cluster requires re-provisioning
+  triggers = {
+    maas_instance_ids = maas_instance.main.*.id
+  }
+
+  # Kick off the AWX Job Template now that the host is up
+  provisioner "local-exec" {
+    command = <<-AWX
+    curl -L --user ${var.awx_user}:${var.awx_password} \
+    -H 'Content-Type: application/json' \
+    -X POST \
+    -d '{"limit": "maas"}' \
+    "${var.awx_url}/api/v2/job_templates/${var.awx_job_template_id}/launch/"
+    AWX
+  }
+
+  # The instance resources need to be created before we can provision them
+  depends_on = [
+    maas_instance.main
+  ]
+}
