@@ -15,7 +15,7 @@ resource "maas_instance" "main" {
 # AWX-driven Ansible Provisioning
 resource "null_resource" "provision_ansible_maas" {
   # Enable this resource if awx provisioning is desired
-  count = var.awx_provisioning == false ? 0 : 1
+  count = var.awx_provisioning == false ? 0 : length(maas_instance.main)
 
   # Changes to any instance in the cluster requires re-provisioning
   triggers = {
