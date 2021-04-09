@@ -19,7 +19,7 @@ resource "null_resource" "provision_ansible_maas" {
 
   # Changes to any instance in the cluster requires re-provisioning
   triggers = {
-    maas_instance_ids = maas_instance.main.*.id
+    maas_instance_ids = join(",", maas_instance.main.*.id)
   }
 
   # Kick off the AWX Job Template now that the host is up
